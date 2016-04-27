@@ -16,7 +16,7 @@ repository = "https://github.com/theban/memrange"
 
 # This is a small list of keywords used to categorize and search for this
 # package.
-keywords = ["address", "range", "memory image"]
+keywords = ["address", "range", "memory-image"]
 
 # This is a string description of the license for this package. Currently
 # crates.io will validate the license provided against a whitelist of known
