@@ -30,4 +30,4 @@ keywords = ["address", "range", "memory-image"]
 license-file = "LICENSE"
 
 [dependencies]
-
+rustc-serialize = "0.3.*"
