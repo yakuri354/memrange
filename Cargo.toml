@@ -1,0 +1,6 @@
+[package]
+name = "memrange"
+version = "0.1.0"
+authors = ["coco <coco@hexgolems.com>"]
+
+[dependencies]
