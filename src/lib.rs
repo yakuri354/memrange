@@ -10,6 +10,10 @@ pub struct Range{
     pub max: u64
 }
 
+pub fn range(min: u64, max: u64) -> Range{
+    Range::new(min,max)
+}
+
 impl Range {
     pub fn new(min: u64, max: u64) -> Range{
         assert!(min <= max);
