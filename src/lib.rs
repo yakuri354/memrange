@@ -65,6 +65,38 @@ impl Range {
         return res;
     }
 
+    ///```
+    ///use memrange::{range, Range};
+    ///assert_eq!(range(0,5).each_slice(2).collect::<Vec<Range>>(), vec![range(0,1), range(2,3), range(4,5)])
+    ///```
+    pub fn each_slice(&self, size: u64) -> Box<Iterator<Item=Range>>{
+        let num_results = self.len() / size;
+        let min = self.min;
+        let max = self.max;
+        let iter = (0..num_results).map(move |i| range(min + i*size, cmp::min(min+(i+1)*size-1, max)) );
+        return Box::new(iter);
+    }
+
+    ///```
+    ///use memrange::{range, Range};
+    ///use std::cmp::Ordering;
+    ///assert_eq!(range(  0,5).intersection_cmp(&range(6,100)), Ordering::Less);
+    ///assert_eq!(range(  0,5).intersection_cmp(&range(5,100)), Ordering::Equal);
+    ///assert_eq!(range(5,100).intersection_cmp(&range(1,2)),   Ordering::Greater);
+    ///```
+    ///returns Equal if self and b are intersecting, the usual comparision otherwise
+    pub fn intersection_cmp(&self, b: &Range) -> Ordering{
+        if self.intersect(b) {
+            return Ordering::Equal
+        }
+        if self < b {
+            return Ordering::Less
+        }
+        if self > b {
+            return Ordering::Greater
+        }
+        unreachable!();
+    }
 }
 
 impl Ord for Range {
