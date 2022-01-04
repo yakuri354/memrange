@@ -2,6 +2,7 @@
 name = "memrange"
 version = "0.1.3"
 authors = ["coco <coco@hexgolems.com>"]
+edition = "2021"
 
 description = "A simple crate that represents address ranges in memory images"
 
@@ -30,4 +31,3 @@ keywords = ["address", "range", "memory-image"]
 license-file = "LICENSE"
 
 [dependencies]
-rustc-serialize = "0.3.*"
